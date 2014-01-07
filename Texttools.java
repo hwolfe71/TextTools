@@ -19,6 +19,7 @@ public class Texttools implements TextToolsInterface {
      * @return int - the position of the letter in the alphabet or 0, if it
      * isn't a letter
      */
+
     private int getAlphaPos(char c) {
         int pos = 0;
 
@@ -37,6 +38,7 @@ public class Texttools implements TextToolsInterface {
      * @param String - the string in which to count the letters
      * @return int[26] - an array containing the number of each letter
      */
+
     public int[] getLetterCount(String str) {
         int[] count = new int[ALPHAS];
         int len = str.length();
@@ -89,16 +91,16 @@ public class Texttools implements TextToolsInterface {
         String sb = new String();
 		char ch;
         
-        for (int i = 1; i < str.length(); i++) {
+		// Strip the non-letters from the string.
+        for (int i = 0; i < str.length(); i++) {
 			ch = str.charAt(i);
             if (Character.isLetter(ch)) {
-                sb = sb + ch;
+                sb += ch;
             }
         }
        
-        String pal = sb.toString();
-        String rev = new String(reverseString(pal));
-        return pal.equalsIgnoreCase(rev);
+        String rev = new String(reverseString(sb));
+        return rev.equalsIgnoreCase(sb);
     }
 
     /**
@@ -109,11 +111,11 @@ public class Texttools implements TextToolsInterface {
 
     public String reverseString(String str) {
         String sb = new String();
-        int l = str.length();
-        for (int i = 1; i <= l; i++) { 
-            sb += str.charAt(l-i);
+
+        for (int i = 0; i < str.length(); i++) { 
+            sb += str.charAt(i);
         }
-        return sb.toString();
+        return sb;
     }
 
 }
