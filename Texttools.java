@@ -29,7 +29,10 @@ public class Texttools implements TextToolsInterface {
             } else {
                 pos = (int)c - LOWEROFFSET;
             }
-        }
+        } else {
+			pos = -1;
+		}
+
         return pos;
     }
 
@@ -50,7 +53,9 @@ public class Texttools implements TextToolsInterface {
 
         for (int i = 0; i < len; i++) {
             int l = getAlphaPos(str.charAt(i));
-            count[l] += 1;
+			if (l >= 0) {
+				count[l] += 1;
+			}
         }
 
         return count;
