@@ -21,6 +21,7 @@ import java.util.*;
 import javax.swing.*;
 
 class TexttoolsGUI {
+
     private JFrame frame;
     private JTextArea textArea;
     private JRadioButton palindromeBtn;
@@ -55,7 +56,6 @@ class TexttoolsGUI {
 
     private ActionListener displayAction = new ActionListener() {
 		public void actionPerformed(ActionEvent e) {
-			displayReversedString();
 
 			// TODO: display results based on selected JRadioButton
 			/*
@@ -64,6 +64,16 @@ class TexttoolsGUI {
 			   or displayWordCount();       // in progress
 			   or displayLetterCount();     // in progress
 			 */
+
+			if (palindromeBtn.isSelected()) {
+				displayPalindrome();
+			} else if (wordsBtn.isSelected()) {
+				displayWordCount();
+			} else if (lettersBtn.isSelected()) {
+				displayLetterCount();
+			} else if (reversalBtn.isSelected()) {
+				displayReversedString();
+			}
 		}
 
     } ;
@@ -106,12 +116,18 @@ class TexttoolsGUI {
     private Component createButtons() {
 
         JPanel choices = new JPanel();
+		ButtonGroup options = new ButtonGroup();
         choices.setLayout(new BoxLayout(choices, BoxLayout.Y_AXIS));
 
-        palindromeBtn = new JRadioButton("Test if a palindrome");
-        reversalBtn = new JRadioButton("Reverse String");
-        wordsBtn = new JRadioButton("Count words");
-        lettersBtn = new JRadioButton("Count letters");
+        this.palindromeBtn = new JRadioButton("Test if a palindrome");
+        this.reversalBtn = new JRadioButton("Reverse String");
+        this.wordsBtn = new JRadioButton("Count words");
+        this.lettersBtn = new JRadioButton("Count letters");
+		
+		options.add(palindromeBtn);
+		options.add(reversalBtn);
+		options.add(wordsBtn);
+		options.add(lettersBtn);
 
         // TODO: create button group, add buttons to group, add group to panel
 		choices.add(palindromeBtn);
@@ -206,20 +222,29 @@ class TexttoolsGUI {
      * Display the number of letters in the string
      */
 
-    private void displayLettercount() {
+    private void displayLetterCount() {
         String str = textArea.getText();
-        String resultStr;
+        String resultStr = "", tmp;
         int [] ltrCount = tools.getLetterCount(str);
 		int i = 0, total = 0;
 
         for (char ch = 'A'; ch <= 'Z'; ch++) {
-            str = ch + ": " + ltrCount[i];
-            letterCnt[i].setText(str);
+            tmp = ch + ": " + ltrCount[i];
+            letterCnt[i].setText(tmp);
             total += ltrCount[i];
 			i++;
+			resultStr += (tmp + "\t");
+			if (i % 5 == 0) {
+				resultStr += "\n";
+			}
         }
         // TODO: set the active result panel in results to letters
         setEditable(false); 
+
+		// test to determine if function works
+        textArea.append("\n\n--\n\n");
+        textArea.append(resultStr);
+
     }
 
     /**
@@ -230,10 +255,15 @@ class TexttoolsGUI {
         String str = textArea.getText();
         String resultStr;
         if (tools.isPalindrome(str)) {
-            resultStr = "The text is a palindrome!";
+            resultStr = "The text is a palindrome!\n";
         } else {
-            resultStr = "The text is not a palindrome!";
+            resultStr = "The text is not a palindrome!\n";
         }
+
+		// test to determine if function works
+        textArea.append("\n\n--\n\n");
+        textArea.append(resultStr);
+
         resultsLabel.setText(resultStr);
         // activate the resultsLabel's panel
         // results.setActive(results);
