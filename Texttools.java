@@ -72,17 +72,17 @@ public class Texttools implements TextToolsInterface {
         int count = 0;
         int i = 0;
         int l = str.length();
-        /*
+
         while (i < l) {
-            while (!Character.isLetter(str.charat(i)) && i < l)
+            while ( (i < l) && (!Character.isLetter(str.charAt(i))) )
                 i++;
             if (i < l) {
                 count++;
-                while (Character.isLetter(str.charAt(i)) && i < l)
+                while ( (i < l) && (Character.isLetter(str.charAt(i))) )
                     i++;
             }
         }
-        */
+
 		return count;
     }
 
