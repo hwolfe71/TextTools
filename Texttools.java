@@ -10,8 +10,8 @@ import java.util.*;
 public class Texttools implements TextToolsInterface {
     // number of letters, and the ascii offsets for upper/lower case letters
     private static int ALPHAS = 26;
-    private static int UPPEROFFSET = 64;
-    private static int LOWEROFFSET = 96;
+    private static int UPPEROFFSET = 65;
+    private static int LOWEROFFSET = 97;
 
     /**
      * Get the position of a given character in the alphabet
