@@ -1,13 +1,15 @@
-In TexttoolsGUI.java:
-	Implement/fix Menubar
-	Add commands to activate a particular panel in results
-	Add logic to get selected JRadioButton and display results
-	Separate GUI from actual tools
-	Read text from a file
-	Center panel when opening
-	reset label - when invisible, still need to reserve it's space.
-		change text instead of setvisible(false) ?
+TODO:
 
-Remove interface class and make texttools member functions static?
+	In TexttoolsGUI.java:
+		Implement/fix Menubar
+		Add commands to activate a particular panel in results
+		Add logic to get selected RadioButton and display results **01/07/2014**
+		Separate GUI from actual tools
+		Read text from a file
+		Center panel when opening
+		reset label - when invisible, still need to reserve it's space.
+			change text instead of setvisible(false) ? **01/06/2014**
 
-retab all files in VIM
+	Remove interface class and make texttools member functions static?
+
+	retab all files in VIM
