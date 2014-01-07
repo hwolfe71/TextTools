@@ -116,9 +116,10 @@ public class Texttools implements TextToolsInterface {
 
     public String reverseString(String str) {
         String sb = new String();
+		int l = str.length();
 
-        for (int i = 0; i < str.length(); i++) { 
-            sb += str.charAt(i);
+        for (int i = 1; i <= l; i++) { 
+            sb += str.charAt(l - i);
         }
         return sb;
     }
