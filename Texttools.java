@@ -7,7 +7,7 @@
 
 import java.util.*;
 
-public class Texttools implements TextToolsInterface {
+public class Texttools {
     // number of letters, and the ascii offsets for upper/lower case letters
     private static int ALPHAS = 26;
     private static int UPPEROFFSET = 65;
@@ -20,7 +20,7 @@ public class Texttools implements TextToolsInterface {
      * isn't a letter
      */
 
-    private int getAlphaPos(char c) {
+    private static int getAlphaPos(char c) {
         int pos = 0;
 
         if (Character.isLetter(c)) {
@@ -42,7 +42,7 @@ public class Texttools implements TextToolsInterface {
      * @return int[26] - an array containing the number of each letter
      */
 
-    public int[] getLetterCount(String str) {
+    public static int[] getLetterCount(String str) {
         int[] count = new int[ALPHAS];
         int len = str.length();
 
@@ -68,7 +68,7 @@ public class Texttools implements TextToolsInterface {
      * @return int - the number of words
      */
 
-    public int getWordCount(String str) {
+    public static int getWordCount(String str) {
         int count = 0;
         int i = 0;
         int l = str.length();
@@ -92,7 +92,7 @@ public class Texttools implements TextToolsInterface {
      * @return boolean - if the string is a palindrome
      */
 
-    public boolean isPalindrome(String str) {
+    public static boolean isPalindrome(String str) {
         String sb = new String();
 		char ch;
         
@@ -114,7 +114,7 @@ public class Texttools implements TextToolsInterface {
      * @return String - the reversed string
      */
 
-    public String reverseString(String str) {
+    public static String reverseString(String str) {
         String sb = new String();
 		int l = str.length();
 
