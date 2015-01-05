@@ -86,17 +86,17 @@ public class Texttools {
 
     public static boolean isPalindrome(String str) {
         String sb = new String();
-		char ch;
+		int l = str.length();
         
 		// Strip the non-letters from the string.
-        for (int i = 0; i < str.length(); i++) {
-			ch = str.charAt(i);
+        for (int i = 0; i < l; i++) {
+			char ch = str.charAt(i);
             if (Character.isLetter(ch)) {
                 sb += ch;
             }
         }
        
-        String rev = new String(reverseString(sb));
+        String rev = reverseString(sb);
         return rev.equalsIgnoreCase(sb);
     }
 
