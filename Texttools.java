@@ -85,17 +85,7 @@ public class Texttools {
      */
 
     public static boolean isPalindrome(String str) {
-        String sb = new String();
-		int l = str.length();
-        
-		// Strip the non-letters from the string.
-        for (int i = 0; i < l; i++) {
-			char ch = str.charAt(i);
-            if (Character.isLetter(ch)) {
-                sb += ch;
-            }
-        }
-       
+        String sb = str.replaceAll("[^a-zA-z]","");
         String rev = reverseString(sb);
         return rev.equalsIgnoreCase(sb);
     }
