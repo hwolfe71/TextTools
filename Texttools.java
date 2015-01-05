@@ -24,11 +24,8 @@ public class Texttools {
         int pos = 0;
 
         if (Character.isLetter(c)) {
-            if (Character.isUpperCase(c)) {
-                pos = (int)c - UPPEROFFSET;
-            } else {
-                pos = (int)c - LOWEROFFSET;
-            }
+			pos = (int)c - 
+					(Character.isUpperCase(c) ? UPPEROFFSET : LOWEROFFSET);
         } else {
 			pos = -1;
 		}
