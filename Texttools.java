@@ -46,15 +46,10 @@ public class Texttools {
         int[] count = new int[ALPHAS];
         int len = str.length();
 
-        // initialize to 0
-        for (int i = 0; i < ALPHAS; i++) {
-            count[i] = 0;
-        }
-
         for (int i = 0; i < len; i++) {
             int l = getAlphaPos(str.charAt(i));
 			if (l >= 0) {
-				count[l] += 1;
+				++count[l];
 			}
         }
 
