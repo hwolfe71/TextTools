@@ -39,10 +39,9 @@ public class Texttools {
 
     public static int[] getLetterCount(String str) {
         int[] count = new int[ALPHAS];
-        int len = str.length();
 
-        for (int i = 0; i < len; i++) {
-            int l = getAlphaPos(str.charAt(i));
+        for (char ch : str.toCharArray()) {
+            int l = getAlphaPos(ch);
 			if (l >= 0) {
 				++count[l];
 			}
@@ -60,18 +59,12 @@ public class Texttools {
 
     public static int getWordCount(String str) {
         int count = 0;
-        int i = 0;
-        int l = str.length();
-
-        while (i < l) {
-            while ( (i < l) && (!isLetter(str.charAt(i))) )
-                i++;
-            if (i < l) {
-                count++;
-                while ( (i < l) && (isLetter(str.charAt(i))) )
-                    i++;
-            }
-        }
+		boolean wasPrevLetter = false;
+		
+		for (char ch : str.toCharArray()) {
+			if (isLetter(ch) && !wasPrevLetter) { count++; } 
+			wasPrevLetter = isLetter(ch);
+		}
 
 		return count;
     }
