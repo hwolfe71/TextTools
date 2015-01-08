@@ -22,13 +22,11 @@ public class Texttools {
      */
 
     private static int getAlphaPos(char c) {
-        int pos = 0;
+        int pos = -1;
 
         if (isLetter(c)) {
 			pos = (int)c - (isUpperCase(c) ? UPPEROFFSET : LOWEROFFSET);
-        } else {
-			pos = -1;
-		}
+        } 
 
         return pos;
     }
