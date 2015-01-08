@@ -6,6 +6,7 @@
  */
 
 import java.util.*;
+import static java.lang.Character.*;
 
 public class Texttools {
     // number of letters, and the ascii offsets for upper/lower case letters
@@ -23,9 +24,8 @@ public class Texttools {
     private static int getAlphaPos(char c) {
         int pos = 0;
 
-        if (Character.isLetter(c)) {
-			pos = (int)c - 
-					(Character.isUpperCase(c) ? UPPEROFFSET : LOWEROFFSET);
+        if (isLetter(c)) {
+			pos = (int)c - (isUpperCase(c) ? UPPEROFFSET : LOWEROFFSET);
         } else {
 			pos = -1;
 		}
@@ -66,11 +66,11 @@ public class Texttools {
         int l = str.length();
 
         while (i < l) {
-            while ( (i < l) && (!Character.isLetter(str.charAt(i))) )
+            while ( (i < l) && (!isLetter(str.charAt(i))) )
                 i++;
             if (i < l) {
                 count++;
-                while ( (i < l) && (Character.isLetter(str.charAt(i))) )
+                while ( (i < l) && (isLetter(str.charAt(i))) )
                     i++;
             }
         }
